@@ -1,7 +1,6 @@
 <?php
 // Fonction pour gérer la connexion à la base de données
 function connectDB() {
-    // Remplacez ces informations par vos propres informations de base de données
     $server = 'localhost';
     $userName = "root";
     $pwd = "";
@@ -47,10 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Fermeture de la connexion
         $conn->close();
-
-        // Redirection vers la page d'accueil
-        header("Location: index.php");
-        exit;
     }
 }
 ?>
@@ -60,11 +55,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/process.css">
-    <title>Retour à l'accueil</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <title>Résultat</title>
 </head>
 
 <body>
+    <?php
+    // Affichage du message de confirmation
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        echo '<h1>Félicitations, vos adresses ont bien été ajoutées à la base de données.</h1>';
+    }
+    ?>
+
     <a href="index.php"><button type="button">Retour à l'accueil</button></a>
 </body>
 </html>
