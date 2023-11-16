@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn = connectDB();
 
         // Préparation de la déclaration SQL pour l'insertion
-        $stmt = $conn->prepare("INSERT INTO adress (street, street_nb, type, city, zipcode) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO `address` (street, street_nb, `type`, city, zipcode) VALUES (?, ?, ?, ?, ?)");
 
         // Boucle sur les données du formulaire et insertion dans la base de données
         foreach ($_POST['street'] as $key => $street) {
